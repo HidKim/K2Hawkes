@@ -1,5 +1,5 @@
-# Python Code for Kernel Method-based Triggering Kernel Estimator via Least Squares Loss (UNDER CONSTRUCTION!)
-This library provides a kernel method-based triggering kernel estimator in a linear Hawkes process, implemented in Tensorflow. This method is based on a representer theorem that emerges under the principle of penalized least squares minimization. For details, see our ICLR2026 paper [1].
+# Python Code for Kernel Method-based Kernel Intensity Estimator
+This library provides kernel method-based kernel intensity estimator (K<sup>2</sup>IE) implemented in Tensorflow. K<sup>2</sup>IE is a kernel method model to estimate intensity functions with the least squares loss functionals. For details, see our ICML2025 paper [1].
 
 The code was tested on Python 3.10.8, tensorflow-deps 2.10.0, tensorflow-macos 2.10.0, and tensorflow-metal 0.6.0.
 
@@ -73,15 +73,15 @@ r_est = model.predict(x)
   >The predicted values of intensity function at the specified points.
 
 # Reference
-1. Hideaki Kim, Tomoharu Iwata. "A Representer Theorem for Hawkes Processes via Penalized Least Squares Minimization", *International Conference on Learning Representations*, 2026.
+1. Hideaki Kim, Tomoharu Iwata, Akinori Fujino. "K<sup>2</sup>IE: Kernel Method-based Kernel Intensity Estimators for Inhomogeneous Poisson Processes", *International Conference on Machine Learning*, 2025.
 ```
-@inproceedings{kim2026arepre,
-  title={A Representer Theorem for Hawkes Processes via Penalized Least Squares Minimization},
-  author={Kim, Hideaki and Iwata, Tomoharu},
-  booktitle={International Conference on Learning Representations},
+@inproceedings{kim2025k2ie,
+  title={K$^2$IE: Kernel Method-based Kernel Intensity Estimators for Inhomogeneous Poisson Processes},
+  author={Kim, Hideaki and Iwata, Tomoharu and Fujino, Akinori},
+  booktitle={International Conference on Machine Learning},
   volume={*},
   pages={*--*},
-  year={2026}
+  year={2025}
 }
 ``` 
 
