@@ -4,15 +4,15 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="HidKim_K2IE",
+    name="HidKim_K2Hawkes",
     version="0.0.1",
     author="Hideaki Kim",
     author_email="hideaki.kin@ntt.com",
     license="SOFTWARE LICENSE AGREEMENT FOR EVALUATION",
-    description="Kernel method-based kernel intensity estimator implemented in Tensorflow.",
+    description="Kernel method-based triggering kernel estimator implemented in Tensorflow.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/HidKim/K2IE",
+    url="https://github.com/HidKim/K2Hawkes",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
