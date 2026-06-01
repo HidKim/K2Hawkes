@@ -1,4 +1,4 @@
-# Python Code for Kernel Method-based Triggering Kernel Estimator via Least Squares Loss (UNDER CONSTRUCTION!!)
+# Python Code for Kernel Method-based Triggering Kernel Estimator via Least Squares Loss (UNDER CONSTRUCTION!)
 This library provides a kernel method-based triggering kernel estimator in a linear Hawkes process, implemented in Tensorflow. This method is based on a representer theorem that emerges under the principle of penalized least squares minimization. For details, see our ICLR2026 paper [1].
 
 The code was tested on Python 3.10.8, tensorflow-deps 2.10.0, tensorflow-macos 2.10.0, and tensorflow-metal 0.6.0.
