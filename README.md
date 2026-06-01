@@ -79,8 +79,6 @@ r_est = model.predict(x)
   title={A Representer Theorem for Hawkes Processes via Penalized Least Squares Minimization},
   author={Kim, Hideaki and Iwata, Tomoharu},
   booktitle={International Conference on Learning Representations},
-  volume={*},
-  pages={*--*},
   year={2026}
 }
 ``` 
