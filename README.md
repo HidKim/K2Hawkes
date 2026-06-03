@@ -10,9 +10,9 @@ pip install git+https://github.com/HidKim/K2Hawkes
 ```
 
 # Basic Usage
-Import random Fourier Feature map (RFM) kernel class:
+Import our tiggering kernel estimator class:
 ```
-from HidKim_K2IE import kernels_rfm
+from HidKim_K2IE import k2_hawkes_rfm
 ```
 Initialize RFM kernel
 ```
