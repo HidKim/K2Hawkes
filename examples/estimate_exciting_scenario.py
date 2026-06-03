@@ -19,7 +19,7 @@ from HidKim_K2Hawkes import k2_hawkes_rfm, iclr2026_scenario
 # T: End time of observation
 # mu: true baseline intensity
 
-dfile = '../data/synthetic/3D_exciting_T2000.dill'
+dfile = 'data/synthetic/3D_exciting_T2000.dill'
 data = dill.load(open(dfile,'rb'))
 d_spk, T, mu = data['spk'], data['T'], data['mu']
 k_true = iclr2026_scenario.exciting()
