@@ -39,17 +39,22 @@ time = k2h.fit(spk, T, gamma, b, support)
 - `b`:  *float*  <br>
   >The scale hyper-parameter for shift-invariant kernel function.\
   e.g.) 'gaussian' kernel: k(t,t') = exp[-(b(t-t'))^2]. 
+- `support`:  *float*  <br>
+  >The support window for the triggering kernels. 
 - **Return**: *float* <br>
   >The execution time.
 
-Evaluate the integral of the squared intensity function over a specified domain (used for closs-validation of hyper-parameter):
+Predict triggering kernel on specified inputs:
 ```
-int_sq = k2ie.predict_integral_squared(region)
+trig_est = k2h.predict(x, edge)
 ```
-- `region`: *ndarray of shape (n_subregion, dim_points, 2)* <br>
-  > The region for integral.  
-- **Return**: *float* <br>
-  >The evaluated itengral of the squared intensity function.
+- `x`: *ndarray of shape (n_points,)* <br> 
+  >The points on input space for evaluating triggering kernel values.
+- `edge`: int, *ndarray of shape (2,)* <br> 
+  >The pair of dimensions that specifies the interaction direction. The 1st dimension is '0'. \
+  e.g.) [0, 2] represents the triggering kernel from the third dim to the 1st dim. 
+- **Return**: *ndarray of shape (n_points,)* <br>
+  >The predicted values of the specified triggering kernel at the specified points.
 
 Predict intensity function on specified inputs:
 ```
