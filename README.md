@@ -14,7 +14,7 @@ Import our tiggering kernel estimator class:
 ```
 from HidKim_K2IE import k2_hawkes_rfm
 ```
-Initialize our estimator
+Initialize our estimator:
 ```
 k2h = k2_hawkes_rfm(kernel='gaussian', n_rand_feature=200, seed=0)
 ```
