@@ -14,43 +14,29 @@ Import our tiggering kernel estimator class:
 ```
 from HidKim_K2IE import k2_hawkes_rfm
 ```
-Initialize RFM kernel
+Initialize our estimator
 ```
-ker = kernels_rfm(n_dim, kernel='gaussian', n_rand_feature=500, seed=0, qmc=False)
+k2h = k2_hawkes_rfm(kernel='gaussian', n_rand_feature=200, seed=0)
 ```
-- `n_dim`:  *int* <br>
-  >The dimensionality of inputs.
 - `kernel`: *string, default='gaussian'* <br> 
   >The kernel function: 'gaussian', 'laplace', and 'cauchy'.
-- `n_rand_feature`:  *int, default=0* <br>
-  >The number of random Fourier features.  
+- `n_rand_feature`:  *int, default=200* <br>
+  >The number of random Fourier features. Quasi-Monte Carlo method is applied to random Fourier feature generation.
 - `seed`:  *int, default=0* <br>
   >The seed for sampling Fourier features.
-- `qmc`:  *bool, default=False* <br>
-  >Quasi-Monte Carlo method is applied to RFM generation.
-
-Import K<sup>2</sup>IE class:
-```
-from HidKim_K2IE import k2_intensity_estimator
-```
-Initialize K<sup>2</sup>IE:
-```
-k2ie = k2_intensity_estimator(kernel=ker)
-```
-- `kernel`: *kernels_rfm instance* <br> 
   
-Fit K<sup>2</sup>IE with data:
+Fit our estimator with data:
 ```
-time = model.fit(d_spk, d_region, a, b)
+time = k2h.fit(spk, T, gamma, b, support)
 ```
-- `d_spk`: *ndarray of shape (n_points, dim_points)* <br>
-  > The training point data.  
-- `d_region`: *ndarray of shape (n_subregion, dim_points, 2)*  <br>
-  >The observation region. e.g.) [ [[0,1],[0,1]], [[1,3],[0,1]] ] represents that there are two adjacent subdomains: one is a unit square, and the other is a rectangle with a length of 2 in the x-direction and a length of 1 in the y-direction.
-- `a`: *float* <br>
-  >The amplitude hyper-parameter for shift-invariant kernel function, or the regularlization hyper-parameter '\gamma' in ICML2025 paper.
-- `b`:  *ndarray of shape (dim_region,)*  <br>
-  >The scale hyper-parameter for shift-invariant kernel function. If a scalar value is provided, the shift-invariant kernel will be regarded as being isotropic. 
+- `spk`: *list of shape (dim_processes,)* <br>
+  > The training time-point data. e.g.) [ [0.2, 0.3], [0.6], [0.1, 0.5, 0.7] ] represents that two, one, and three events occurred in the 1st, the 2nd, and the 3rd dimensions of a Hawkes process, respectively.  
+- `T`: *float*  <br>
+  >The end of observation region [0, T].
+- `gamma`: *float* <br>
+  >The regularlization hyper-parameter '\gamma' in ICLR2026 paper.
+- `b`:  *float*  <br>
+  >The scale hyper-parameter for shift-invariant kernel function. e.g.) 'gaussian' kernel: k(t,t') = exp[-(b(t-t'))^2]. 
 - **Return**: *float* <br>
   >The execution time.
 
