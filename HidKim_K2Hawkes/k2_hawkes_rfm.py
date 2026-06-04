@@ -251,7 +251,7 @@ class k2_hawkes_rfm:
 
         spk = tf.cast(reform_spk(spk), self.d_type)
         x = tf.cast(tf.ragged.constant(x),dtype=self.d_type)
-
+        
         return [z.numpy() for z in self.func(x,spk,self.mu,self.coef,self.spk.shape[0],self.sup,self.b)]
     
     def get_mu(self):

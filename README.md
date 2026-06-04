@@ -29,9 +29,9 @@ Fit our estimator with data:
 ```
 time = k2h.fit(spk, T, gamma, b, support)
 ```
-- `spk`: *list of shape (dim_processes,)* <br>
-  > The training time-point data. \
-  e.g.) [ [0.2, 0.3], [0.6], [0.1, 0.5, 0.7] ] represents that two, one, and three events occurred in the 1st, the 2nd, and the 3rd dimensions of a Hawkes process, respectively.  
+- `spk`:  *ndarray of shape (n_points, 2)* <br>
+  > The training time-point data: [time, dimension].\
+  e.g.) [ [0.1, 0], [0.2, 2], [0.6, 1] ] represents that events occurred at times 0.1, 0.2, and 0.6 in the 1st, the 3rd, and the 2nd dimensions of a Hawkes process, respectively.
 - `T`: *float*  <br>
   >The end of observation region [0, T].
 - `gamma`: *float* <br>
@@ -56,14 +56,23 @@ trig_est = k2h.predict(x, edge)
 - **Return**: *ndarray of shape (n_points,)* <br>
   >The predicted values of the specified triggering kernel at the specified points.
 
-Predict intensity function on specified inputs:
+Predict baseline intensities:
 ```
-r_est = model.predict(x)
+mu_est = k2h.get_mu()
 ```
-- `x`: *ndarray of shape (n_points, dim_points)* <br> 
-  >The points on input space for evaluating intensity values.
-- **Return**: *ndarray of shape (n_points,)* <br>
-  >The predicted values of intensity function at the specified points.
+- **Return**: *ndarray of shape (n_dimensions,)* <br>
+  >The predicted values of baseline intensities.
+
+Evaluate intensity functions on specified inputs under the estimated triggering kernels:
+```
+r_est = k2h.intensity(x, spk)
+```
+- `x`: *ndarray of shape (n_points,)* <br> 
+  >The time-points for evaluating intensity values.
+- `spk`: *ndarray of shape (n_points, 2)* <br>
+  >The event data observed during the period of interest for intensity estimation.
+- **Return**: *list of ndarray of shape (n_dimensions, (n_points,))* <br>
+  >The predicted values of intensity functions at the specified points.
 
 # Reference
 1. Hideaki Kim, Tomoharu Iwata. "A Representer Theorem for Hawkes Processes via Penalized Least Squares Minimization", *International Conference on Learning Representations*, 2026.

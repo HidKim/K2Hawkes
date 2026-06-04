@@ -105,8 +105,9 @@ for iii, spk in enumerate(d_spk):
             - 2*sum([sum(x) for x in rate(spkk,spk)])
         score_tr = np.sum(array(rate([t_cr_tr]*n_node,spk_tr))**2*dt_cr_tr[None,:]) \
             - 2*sum([sum(x) for x in rate(spkk_tr,spk_tr)])
+
         set_score.append(score-score_tr)
-    
+            
     # Choose the Optimal Hyper-parameter #################
     indx = argmin(array(set_score))
     [opt_g, opt_b] = array(set_par)[indx]
