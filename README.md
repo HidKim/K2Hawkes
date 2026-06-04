@@ -30,13 +30,15 @@ Fit our estimator with data:
 time = k2h.fit(spk, T, gamma, b, support)
 ```
 - `spk`: *list of shape (dim_processes,)* <br>
-  > The training time-point data. e.g.) [ [0.2, 0.3], [0.6], [0.1, 0.5, 0.7] ] represents that two, one, and three events occurred in the 1st, the 2nd, and the 3rd dimensions of a Hawkes process, respectively.  
+  > The training time-point data. \
+  e.g.) [ [0.2, 0.3], [0.6], [0.1, 0.5, 0.7] ] represents that two, one, and three events occurred in the 1st, the 2nd, and the 3rd dimensions of a Hawkes process, respectively.  
 - `T`: *float*  <br>
   >The end of observation region [0, T].
 - `gamma`: *float* <br>
   >The regularlization hyper-parameter '\gamma' in ICLR2026 paper.
 - `b`:  *float*  <br>
-  >The scale hyper-parameter for shift-invariant kernel function. e.g.) 'gaussian' kernel: k(t,t') = exp[-(b(t-t'))^2]. 
+  >The scale hyper-parameter for shift-invariant kernel function.\
+  e.g.) 'gaussian' kernel: k(t,t') = exp[-(b(t-t'))^2]. 
 - **Return**: *float* <br>
   >The execution time.
 
